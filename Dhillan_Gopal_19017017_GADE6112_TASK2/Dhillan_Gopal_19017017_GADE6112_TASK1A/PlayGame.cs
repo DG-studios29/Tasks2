@@ -98,7 +98,14 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 			}
 			else if (type is HeroClass)
 			{
-				return 'H';
+				if (ge.getMap().getHero().IsDead())
+				{
+					return '.';
+				}
+				else
+				{
+					return 'H';
+				}
 			}
 			else if (type is GoblinClass)
 			{

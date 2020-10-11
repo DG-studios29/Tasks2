@@ -331,6 +331,10 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 		{
 			this.map = loadMap;
 		}
+		public MapClass getMap()
+		{
+			return map;
+		}
 	}
 }
 
