@@ -25,8 +25,8 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 		{
 			string infoDisplay = "";
 			infoDisplay += "Enemies in Game\n\n";
-			infoDisplay += x.ToString();
-			infoDisplay += y.ToString() + "\n";
+			infoDisplay += "X Postion: "+x.ToString() + "\t";
+			infoDisplay += "Y Postion: " + y.ToString() + "\t" + "\n";
 			infoDisplay += "Damage: " + damage.ToString();
 			return infoDisplay;
 			

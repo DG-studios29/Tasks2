@@ -193,7 +193,7 @@
 			this.Controls.Add(this.lblErrorMessage);
 			this.Controls.Add(this.btnStartGame);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Game Menu";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

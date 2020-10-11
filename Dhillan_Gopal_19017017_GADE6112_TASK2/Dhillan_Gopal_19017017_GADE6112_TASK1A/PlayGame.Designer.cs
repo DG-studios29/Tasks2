@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.lblEnemiesRemaining = new System.Windows.Forms.Label();
-			this.lblAttackingOptions = new System.Windows.Forms.Label();
 			this.lblActionStatus = new System.Windows.Forms.Label();
 			this.lblHeroStats = new System.Windows.Forms.Label();
 			this.btnRight = new System.Windows.Forms.Button();
@@ -53,14 +52,6 @@
 			this.lblEnemiesRemaining.Name = "lblEnemiesRemaining";
 			this.lblEnemiesRemaining.Size = new System.Drawing.Size(0, 17);
 			this.lblEnemiesRemaining.TabIndex = 13;
-			// 
-			// lblAttackingOptions
-			// 
-			this.lblAttackingOptions.AutoSize = true;
-			this.lblAttackingOptions.Location = new System.Drawing.Point(588, 26);
-			this.lblAttackingOptions.Name = "lblAttackingOptions";
-			this.lblAttackingOptions.Size = new System.Drawing.Size(0, 17);
-			this.lblAttackingOptions.TabIndex = 14;
 			// 
 			// lblActionStatus
 			// 
@@ -169,9 +160,9 @@
 			// 
 			// btnSaveGame
 			// 
-			this.btnSaveGame.Location = new System.Drawing.Point(1216, 12);
+			this.btnSaveGame.Location = new System.Drawing.Point(1204, 12);
 			this.btnSaveGame.Name = "btnSaveGame";
-			this.btnSaveGame.Size = new System.Drawing.Size(141, 84);
+			this.btnSaveGame.Size = new System.Drawing.Size(153, 101);
 			this.btnSaveGame.TabIndex = 19;
 			this.btnSaveGame.Text = "Save Game";
 			this.btnSaveGame.UseVisualStyleBackColor = true;
@@ -211,7 +202,6 @@
 			this.Controls.Add(this.btnAttackUp);
 			this.Controls.Add(this.lblMapView);
 			this.Controls.Add(this.lblEnemiesRemaining);
-			this.Controls.Add(this.lblAttackingOptions);
 			this.Controls.Add(this.lblActionStatus);
 			this.Controls.Add(this.lblHeroStats);
 			this.Controls.Add(this.btnRight);
@@ -229,7 +219,6 @@
 		#endregion
 
 		private System.Windows.Forms.Label lblEnemiesRemaining;
-		private System.Windows.Forms.Label lblAttackingOptions;
 		private System.Windows.Forms.Label lblActionStatus;
 		private System.Windows.Forms.Label lblHeroStats;
 		private System.Windows.Forms.Button btnRight;

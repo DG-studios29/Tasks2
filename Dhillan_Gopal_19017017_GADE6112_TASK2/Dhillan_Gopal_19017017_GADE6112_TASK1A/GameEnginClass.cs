@@ -72,14 +72,13 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 
 		public Boolean movePlayer(CharacterClass.Movement move)
 		{
-			
+
 			if (map.getHero().returnMove(move) == CharacterClass.Movement.Nomovement)
 			{
 				return false;
 			}
 			else
 			{
-
 				int heroX = map.getHero().getX();
 				int heroY = map.getHero().getY();
 				if (move == CharacterClass.Movement.Up)
@@ -122,10 +121,11 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 						map.foucsUpdateVision();
 					}
 				}
-					map.updateCharaterPosition(map.getHero(), move);
-					moveEnemies();
-					return true;
-				
+				map.updateCharaterPosition(map.getHero(), move);
+				moveEnemies();
+				enemyAttacks();
+				return true;
+
 			}
 		}
 
@@ -138,6 +138,7 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 				CharacterClass.Movement move = enemies[i].returnMove(CharacterClass.Movement.Nomovement);
 				map.updateCharaterPosition(enemies[i], move);
 			}
+
 		}
 
 		public String attackEnemy(CharacterClass.Movement move)
@@ -181,6 +182,103 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 				else
 				{
 					return "1The enemy is dead";
+				}
+
+			}
+			else
+			{
+				return "0";
+			}
+
+
+		}
+		public void enemyAttacks()
+		{
+			EnemyClass[] enemies_copy = new EnemyClass[map.getEnemies().Length];
+			Array.Copy(map.getEnemies(), 0, enemies_copy, 0, map.getEnemies().Length);
+			string attack_status;
+			for (int i = 0; i < enemies_copy.Length; ++i)
+			{
+				if (!enemies_copy[i].IsDead())
+				{
+					enemies_copy[i].lockVision();
+
+					for (int j = 0; j < enemies_copy[i].getVision().Length; ++j)
+					{
+						if (enemies_copy[i] is GoblinClass && j < 4)
+						{
+							 attack_status = attackEnemy(enemies_copy[i], CharacterClass.Movement.Nomovement, enemies_copy[i].getVision()[j]);
+
+						}
+						else if (enemies_copy[i] is MagesClass)
+						{
+							 attack_status = attackEnemy(enemies_copy[i], CharacterClass.Movement.Nomovement, enemies_copy[i].getVision()[j]);
+
+						}
+					}
+
+					enemies_copy[i].unlockVision();
+					map.updateCharaterPosition(enemies_copy[i], CharacterClass.Movement.Nomovement);
+				}
+			}
+
+
+		}
+
+
+		public string attackEnemy(CharacterClass h, CharacterClass.Movement dir, TileClass t)
+		{
+			TileClass target = new EmptyTileClass(0, 0);
+
+			switch (dir)
+			{
+				case CharacterClass.Movement.Up:
+					target = map.getMap()[h.getY() - 1, h.getX()];
+					break;
+				case CharacterClass.Movement.Down:
+					target = map.getMap()[h.getY() + 1, h.getX()];
+					break;
+				case CharacterClass.Movement.Left:
+					target = map.getMap()[h.getY(), h.getX() - 1];
+					break;
+				case CharacterClass.Movement.Right:
+					target = map.getMap()[h.getY(), h.getX() + 1];
+					break;
+				default:
+					target = t;
+					break;
+			}
+
+
+			if ((h is HeroClass && target is EnemyClass && !h.IsDead()) || (h is GoblinClass && target is HeroClass) || (h is MagesClass && target is CharacterClass))
+			{
+
+				h.Attack((CharacterClass)target);
+				CharacterClass c_target = (CharacterClass)target;
+
+				if (c_target.IsDead())
+				{
+					map.removeFromMap(c_target);
+				}
+
+
+				if (h is HeroClass)
+				{
+
+
+					enemyAttacks();
+					if (!c_target.IsDead())
+					{
+						return "1" + c_target.ToString();
+					}
+					else
+					{
+						return "1The enemy is dead";
+					}
+				}
+				else
+				{
+					return "";
 				}
 
 			}
@@ -235,3 +333,4 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 		}
 	}
 }
+

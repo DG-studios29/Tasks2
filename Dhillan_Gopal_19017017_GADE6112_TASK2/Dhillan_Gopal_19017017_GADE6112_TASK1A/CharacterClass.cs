@@ -191,14 +191,27 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 				goldAmount += ((GoldClass)i).getgoldAmount();
 			}
 		}
-
 		public int getgoldAmount()
 		{
 			return goldAmount;
 		}
+		protected Boolean lock_vision = false;  
 
+		public void lockVision()
+		{
+			this.lock_vision = true;
+		}
 
+		public void unlockVision()
+		{
+			this.lock_vision = false;
+		}
 
+		public Boolean isVisionLocked()
+		{
+			return this.lock_vision;
+		}
+		
 
 
 
