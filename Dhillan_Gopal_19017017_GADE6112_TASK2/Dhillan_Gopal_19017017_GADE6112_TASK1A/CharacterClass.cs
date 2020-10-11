@@ -129,6 +129,7 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 			else if (move == Movement.Down) { ++this.y; }
 			else if (move == Movement.Left) { --this.x; }
 			else if (move == Movement.Right) { ++this.x; }
+			else { }
 		}
 
 		public abstract override string ToString();

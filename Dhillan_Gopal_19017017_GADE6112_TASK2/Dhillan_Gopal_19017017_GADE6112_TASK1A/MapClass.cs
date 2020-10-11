@@ -169,10 +169,15 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
         {
             TileClass[] characterVision = new TileClass[4];
 
-            characterVision[0] = map[y - 1, x];  //North
-            characterVision[1] = map[y + 1, x];  //South
-            characterVision[2] = map[y, x - 1];  //West
-            characterVision[3] = map[y, x + 1];  //East
+            characterVision[0] = map[y - 1, x];  
+            characterVision[1] = map[y + 1, x];  
+            characterVision[2] = map[y, x - 1];  
+            characterVision[3] = map[y, x + 1];
+
+            characterVision[4] = map[y - 1, x - 1];
+            characterVision[5] = map[y - 1, x + 1];
+            characterVision[6] = map[y + 1, x - 1];
+            characterVision[7] = map[y + 1, x + 1];
 
             return characterVision;
 
@@ -180,7 +185,7 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 
         private int[] getSpawnPosition()
         {
-            //NOTE TO SELF - Maybe don't use recursion next time to avoid repetition ( use a list to store visited locations )
+            
 
             int x_position = rnd.Next(1, width);
             int y_position = rnd.Next(1, height);

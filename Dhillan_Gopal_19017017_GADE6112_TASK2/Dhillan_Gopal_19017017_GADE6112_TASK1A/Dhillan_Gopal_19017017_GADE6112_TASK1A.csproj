@@ -60,6 +60,7 @@
     <Compile Include="GoldClass.cs" />
     <Compile Include="HeroClass.cs" />
     <Compile Include="ItemClass.cs" />
+    <Compile Include="MagesClass.cs" />
     <Compile Include="MapClass.cs" />
     <Compile Include="ObstacleClass.cs" />
     <Compile Include="PlayGame.cs">
