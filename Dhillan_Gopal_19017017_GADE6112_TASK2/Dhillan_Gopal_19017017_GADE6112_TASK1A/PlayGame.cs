@@ -17,11 +17,11 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
         private int width;
         private int height;
 
-        public PlayGame(int min_width, int max_width, int min_height, int max_height, int num_enemies, bool loadGame)
+        public PlayGame(int min_width, int max_width, int min_height, int max_height, int num_enemies, bool loadGame,int gold)
         {
             InitializeComponent();
             if (! loadGame)
-            { ge = new GameEnginClass(min_width, max_width, min_height, max_height, num_enemies);
+            { ge = new GameEnginClass(min_width, max_width, min_height, max_height, num_enemies, gold);
             width = ge.getWidth();
             height = ge.getHeight();
             }
@@ -114,6 +114,14 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
             {
                 return 'G';
             }
+            else if (type is MagesClass)
+			{
+                return 'M';
+			}
+            else if (type is GoldClass)
+			{
+                return '$';
+			}
             else
             {
                 return 'X';

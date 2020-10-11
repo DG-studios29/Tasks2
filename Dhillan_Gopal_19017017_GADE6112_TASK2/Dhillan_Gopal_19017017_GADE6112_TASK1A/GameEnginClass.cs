@@ -15,9 +15,9 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
     {
         private MapClass map;
 
-        public GameEnginClass(int min_width, int max_width, int min_height, int max_height, int num_enemies)
+        public GameEnginClass(int min_width, int max_width, int min_height, int max_height, int num_enemies,int gold)
         {
-            map = new MapClass(min_width, max_width, min_height, max_height, num_enemies);
+            map = new MapClass(min_width, max_width, min_height, max_height, num_enemies,gold);
         }
         public GameEnginClass()
         { }

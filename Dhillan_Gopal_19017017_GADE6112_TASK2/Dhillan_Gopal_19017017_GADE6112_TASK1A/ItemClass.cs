@@ -10,6 +10,7 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 	{
 		protected ItemClass(int x, int y) : base(x, y)
 		{
+
 		}
 
 		public override string ToString()

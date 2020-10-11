@@ -41,6 +41,8 @@
 			this.lblEnemies = new System.Windows.Forms.Label();
 			this.edtEnemies = new System.Windows.Forms.TextBox();
 			this.btnLoadGame = new System.Windows.Forms.Button();
+			this.lblGold = new System.Windows.Forms.Label();
+			this.edtGold = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// btnStartGame
@@ -153,6 +155,23 @@
 			this.btnLoadGame.UseVisualStyleBackColor = true;
 			this.btnLoadGame.Click += new System.EventHandler(this.btnLoadGame_Click);
 			// 
+			// lblGold
+			// 
+			this.lblGold.AutoSize = true;
+			this.lblGold.Location = new System.Drawing.Point(83, 162);
+			this.lblGold.Name = "lblGold";
+			this.lblGold.Size = new System.Drawing.Size(90, 17);
+			this.lblGold.TabIndex = 1;
+			this.lblGold.Text = "Gold Amount";
+			this.lblGold.Click += new System.EventHandler(this.label2_Click);
+			// 
+			// edtGold
+			// 
+			this.edtGold.Location = new System.Drawing.Point(181, 162);
+			this.edtGold.Name = "edtGold";
+			this.edtGold.Size = new System.Drawing.Size(100, 22);
+			this.edtGold.TabIndex = 2;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,11 +180,13 @@
 			this.Controls.Add(this.btnLoadGame);
 			this.Controls.Add(this.edtMaxHeight);
 			this.Controls.Add(this.edtMaxWidth);
+			this.Controls.Add(this.edtGold);
 			this.Controls.Add(this.edtEnemies);
 			this.Controls.Add(this.edtMinHeight);
 			this.Controls.Add(this.edtMinWidth);
 			this.Controls.Add(this.lblMaxWidth);
 			this.Controls.Add(this.lblMinWidth);
+			this.Controls.Add(this.lblGold);
 			this.Controls.Add(this.lblEnemies);
 			this.Controls.Add(this.lblMaxHeight);
 			this.Controls.Add(this.lblMinHeight);
@@ -193,6 +214,8 @@
 		private System.Windows.Forms.Label lblEnemies;
 		private System.Windows.Forms.TextBox edtEnemies;
 		private System.Windows.Forms.Button btnLoadGame;
+		private System.Windows.Forms.Label lblGold;
+		private System.Windows.Forms.TextBox edtGold;
 	}
 }
 

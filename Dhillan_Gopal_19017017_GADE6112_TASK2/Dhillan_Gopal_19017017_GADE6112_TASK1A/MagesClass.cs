@@ -43,7 +43,7 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 			public override Movement returnMove(Movement move = 0)
 			{
 				return 0;
-				throw new NotImplementedException();
+				
 			}
 			public override bool checkRange(CharacterClass target)
 		{

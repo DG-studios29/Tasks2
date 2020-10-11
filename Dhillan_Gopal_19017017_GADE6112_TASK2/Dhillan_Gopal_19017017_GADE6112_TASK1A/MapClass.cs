@@ -11,21 +11,21 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
     class MapClass 
 	{
         public Random rnd = new Random();
-
+        private ItemClass[] iteams;
         private TileClass[,] map;
         private HeroClass hero;
         private EnemyClass[] enemies;
         private int width;
         private int height;
 
-        public MapClass(int min_width, int max_width, int min_height, int max_height, int num_enemies)
+        public MapClass(int min_width, int max_width, int min_height, int max_height, int num_enemies,int gold)
         {
             this.width = rnd.Next(min_width, max_width + 1);
             this.height = rnd.Next(min_height, max_height + 1);
 
             this.map = new TileClass[height, width];
 
-            //Check that the number of enemies spawned does not exceed the limit
+           
             int max_num_enemies = ((width - 2) * (height - 2)) - 1;
             if (num_enemies > max_num_enemies)
             {
@@ -39,10 +39,21 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 
             for (int i = 0; i < enemies.Length; ++i)
             {
-                enemies[i] = (GoblinClass)create(TileClass.tileType.Enemy);
+                enemies[i] = (EnemyClass)create(TileClass.tileType.Enemy);
                 map[enemies[i].getY(), enemies[i].getX()] = enemies[i];
             }
 
+            int maxnumGold = ((width - 2) * (height - 2)) - 1 - enemies.Length;
+            if (gold > maxnumGold)
+            {
+                gold = maxnumGold;
+            }
+            this.iteams = new ItemClass[gold];
+            for (int i = 0; i < enemies.Length; ++i)
+            {
+                iteams[i] = (GoldClass)create(TileClass.tileType.Gold);
+                map[iteams[i].getY(), iteams[i].getX()] = iteams[i];
+            }
             updateVision();
             Console.WriteLine(enemies.Length);
         }
@@ -71,22 +82,37 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 
         private TileClass create(TileClass.tileType type)
         {
-            int[] spawn_location = getSpawnPosition();
+            int[] spawnLocation = getSpawnPosition();
 
             if (type == TileClass.tileType.Hero)
             {
-                return new HeroClass(spawn_location[1], spawn_location[0], 10);
+                return new HeroClass(spawnLocation[1], spawnLocation[0], 10);
             }
             else if (type == TileClass.tileType.Enemy)
             {
-                return new GoblinClass(spawn_location[1], spawn_location[0]);
+                return enemyGen(spawnLocation[1], spawnLocation[0]);
+            }
+            else if (type == TileClass.tileType.Gold)
+			{
+                return new GoldClass(spawnLocation[1], spawnLocation[0]);
+			}
+            else
+            {
+                return new EmptyTileClass(spawnLocation[1], spawnLocation[0]);
+            }
+        
+        }
+        public EnemyClass enemyGen(int x, int y)// this will give a random enemy
+        {
+            if (rnd.Next(1, 3) == 1)
+            {
+                return new MagesClass(x, y, TileClass.tileType.Enemy, 5, 5);
             }
             else
             {
-                return new EmptyTileClass(spawn_location[1], spawn_location[0]);
+                return new GoblinClass(x, y);
             }
         }
-
 
         private void updateVision()
         {
