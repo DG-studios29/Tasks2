@@ -11,6 +11,8 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 	{
 		public ObstacleClass(int x, int y) : base(x, y)
 		{
+			this.x = x;
+			this.y = y;
 		}
 
 

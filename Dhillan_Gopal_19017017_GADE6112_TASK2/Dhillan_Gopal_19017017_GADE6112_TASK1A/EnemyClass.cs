@@ -17,12 +17,14 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 			setDamage(damage);
 			setHp(hp);
 			setMaxHp(hp);
+			this.type = TileClass.tileType.Enemy;
 		}
 
 
 		public override string ToString()
 		{
 			string infoDisplay = "";
+			infoDisplay += "Enemies in Game\n\n";
 			infoDisplay += x.ToString();
 			infoDisplay += y.ToString() + "\n";
 			infoDisplay += "Damage: " + damage.ToString();

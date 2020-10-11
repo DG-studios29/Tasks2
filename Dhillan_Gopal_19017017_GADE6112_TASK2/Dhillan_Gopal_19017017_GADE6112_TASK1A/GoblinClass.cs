@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 {
@@ -10,22 +6,25 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 	class GoblinClass : EnemyClass
 	{
 
-		public GoblinClass(int x, int y) : base(x, y, TileClass.tileType.Enemy, 1, 10) { }
+		public GoblinClass(int x, int y) : base(x, y, TileClass.tileType.Enemy, 1, 10)
+		{
 
-		public override Movement returnMove(CharacterClass.Movement Move)
+		}
+
+		public override Movement returnMove(CharacterClass.Movement move)
 		{
 			int[] possible_moves = { 0, 1, 2, 3 };
-			Boolean move_found = false;
+			Boolean moveFound = false;
 			CharacterClass.Movement direction = CharacterClass.Movement.Nomovement;
 
 
-			while (!move_found)
+			while (!moveFound)
 			{
 				direction = (CharacterClass.Movement)possible_moves[rnd.Next(0, possible_moves.Length)];
 
 				if (this.characterVision[(int)direction] is EmptyTileClass)
 				{
-					move_found = true;
+					moveFound = true;
 
 				}
 				else if (possible_moves.Length != 1)
@@ -48,12 +47,10 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 				else
 				{
 					direction = CharacterClass.Movement.Nomovement;
-					move_found = true;
+					moveFound = true;
 				}
 
 			}
-
-
 			return direction;
 
 		}

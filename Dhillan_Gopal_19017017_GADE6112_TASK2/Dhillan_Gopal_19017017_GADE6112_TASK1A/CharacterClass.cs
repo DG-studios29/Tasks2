@@ -5,9 +5,9 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 	[Serializable]
 	abstract class CharacterClass : TileClass
 	{
+		private int goldAmount = 0;
 		public enum Movement
 		{
-		
 			Up,
 			Down,
 			Left,
@@ -129,14 +129,14 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 			else if (move == Movement.Down) { ++this.y; }
 			else if (move == Movement.Left) { --this.x; }
 			else if (move == Movement.Right) { ++this.x; }
-			else { }
+			
 		}
 
 		public abstract override string ToString();
 
 		private int distanceTo(CharacterClass target)
 		{
-			int x= Math.Abs(target.getX() - this.x);
+			int x = Math.Abs(target.getX() - this.x);
 			int y = Math.Abs(target.getY() - this.y);
 
 			return x + y;
@@ -184,14 +184,24 @@ namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 		}
 		public abstract Movement returnMove(Movement move = 0);
 
-		
-		
+		public void pickup(ItemClass i)
+		{
+			if (i is GoldClass)
+			{
+				goldAmount += ((GoldClass)i).getgoldAmount();
+			}
+		}
 
-		
+		public int getgoldAmount()
+		{
+			return goldAmount;
+		}
 
-		
 
-		
+
+
+
+
 
 
 

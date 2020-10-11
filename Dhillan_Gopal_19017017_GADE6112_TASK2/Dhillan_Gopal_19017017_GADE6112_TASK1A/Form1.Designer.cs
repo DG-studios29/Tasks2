@@ -147,11 +147,11 @@
 			// 
 			// btnLoadGame
 			// 
-			this.btnLoadGame.Location = new System.Drawing.Point(585, 240);
+			this.btnLoadGame.Location = new System.Drawing.Point(633, 9);
 			this.btnLoadGame.Name = "btnLoadGame";
-			this.btnLoadGame.Size = new System.Drawing.Size(118, 160);
+			this.btnLoadGame.Size = new System.Drawing.Size(222, 83);
 			this.btnLoadGame.TabIndex = 3;
-			this.btnLoadGame.Text = "Load";
+			this.btnLoadGame.Text = "Load previous game";
 			this.btnLoadGame.UseVisualStyleBackColor = true;
 			this.btnLoadGame.Click += new System.EventHandler(this.btnLoadGame_Click);
 			// 
@@ -176,7 +176,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(715, 412);
+			this.ClientSize = new System.Drawing.Size(867, 504);
 			this.Controls.Add(this.btnLoadGame);
 			this.Controls.Add(this.edtMaxHeight);
 			this.Controls.Add(this.edtMaxWidth);
