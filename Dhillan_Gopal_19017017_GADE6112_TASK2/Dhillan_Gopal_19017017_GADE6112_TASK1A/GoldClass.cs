@@ -2,6 +2,7 @@
 
 namespace Dhillan_Gopal_19017017_GADE6112_TASK1A
 {
+	[Serializable]
 	class GoldClass : ItemClass
 	{
 		private Random goldrnd = new Random();
